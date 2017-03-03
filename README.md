@@ -1,6 +1,6 @@
 # raspicam_node
 
-ROS node for the Raspberry Pi Camera Module. Works with both the V1.x and V2.x versions of the module. We recommend using the v2.x cameras as they have better auto gain, and the general image quality is better. 
+ROS node for the Raspberry Pi Camera Module. This version is adapted for the PiROSBot. Thanks to UbiquityRobotics, SV-ROS and fpasteau!
 
 ## Build Intructions
 This node is primarily supported on ROS Kinetic, and Ubuntu 16.04, and that is what these instuctions presume.
@@ -9,11 +9,11 @@ Go to your catkin_ws `cd ~/catkin_ws/src`.
 
 Download the source for this node by running
 
-`git clone https://github.com/UbiquityRobotics/raspicam_node.git`
+`git clone https://github.com/jerabek/raspicam_node.git`
 
-There are some dependencies that are not recognized by ros, so you need to create the file `/etc/ros/rosdep/sources.list.d/30-ubiquity.list` and add this to it.
+There are some dependencies that are not recognized by ros, so you need to create the file `/etc/ros/rosdep/sources.list.d/pirosbot.list` and add this to it.
 ```
-yaml https://raw.githubusercontent.com/UbiquityRobotics/rosdep/master/raspberry-pi.yaml
+yaml https://raw.githubusercontent.com/jerabek/raspicam_node/indigo/raspberry-pi.yaml
 ```
 
 Then run `rosdep update`.
@@ -30,9 +30,8 @@ Compile the code with `catkin_make`.
 ## Running the Node
 Once you have the node built, you can run it using a launch file.
 
-For a V2.x camera, run `roslaunch raspicam_node camerav2_1280x960.launch`
+Run `roslaunch raspicam_node camerav2_640x480.launch`
 
-For a V1.x camera, run `roslaunch raspicam_node camerav1_1280x720.launch`
 
 Use `rqt_image_view` to view the published image.
 
